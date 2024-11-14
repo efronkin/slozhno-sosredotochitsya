@@ -1,6 +1,7 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 .page {
+  background-color: var(--bg-color); /*Цвет был задан в global, продублировал здесь*/
   background-image: var(--bg-iamge);
   background-position: center;
   background-size: cover;
@@ -13,8 +14,7 @@
   position: relative;
 }
 
-.header::after,
-.footer::after {
+.decorative-elements::after {
   position: absolute;
   top: var(--page-offset);
   right: var(--page-offset);
@@ -25,8 +25,7 @@
   border-right: 1px solid var(--accent-text-color);
 }
 
-.header::before,
-.footer::before {
+.decorative-elements::before {
   position: absolute;
   bottom: var(--page-offset);
   left: var(--page-offset);
@@ -43,6 +42,7 @@
   display: grid;
   grid-template-rows: repeat(3, 1fr);
   block-size: 100vh;
+  min-block-size: 668px;
   align-items: center;
   padding: var(--page-offset);
 }
@@ -91,17 +91,17 @@
 }
 
 .header__theme-menu-button:hover {
-  border: 1px solid var(--accent-text-color);
+  border: 1px solid currentColor;
   cursor: pointer;
 }
 
 .header__theme-menu-button:focus-visible {
-  border-bottom: 1px solid var(--accent-text-color);
+  border-bottom: 1px solid currentColor;
   outline: none;
 }
 
 .header__theme-menu-button_active {
-  border: 1px solid var(--accent-text-color);
+  border: 1px solid currentColor;
   pointer-events: none;
 }
 
@@ -159,6 +159,10 @@
   margin-block-end: 10px;
 }
 
+.main__text_block .main__text:not(:last-child) {
+  margin-block-end: 10px;
+}
+
 .link {
   text-shadow: 2px 2px 0 var(--subtitle-decor);
   text-decoration: none;
@@ -166,12 +170,12 @@
 }
 
 .link:hover {
-  border-bottom: 1px solid var(--main-text-color);
+  border-bottom: 1px solid currentColor;
   outline: none;
 }
 
 .link:focus-visible {
-  border: 1px solid var(--main-text-color);
+  border: 1px solid currentColor;
   outline: none;
 }
 
@@ -204,23 +208,6 @@
 
 .footer__title {
   text-shadow: 2px 2px 0 var(--accent-color);
-}
-
-@media (prefers-color-scheme: light) {
-  .page.theme_auto {
-    --bg-color: #fff1f7;
-    --bg-iamge: url("../images/cover-image-light.png");
-    --accent-color: #ff0070;
-    --accent-text-color: #353430;
-    --title-text-color: #ffc2e6;
-    --subtitle-decor: #ff8dcb;
-    --subtitle-text-color: #353430;
-    --main-text-color: #353430;
-  }
-
-  .page.theme_auto .header__rec {
-    display: none;
-  }
 }
 
 @media (width >= 768px) {
@@ -264,11 +251,11 @@
     grid-template-columns: 1fr 2fr;
   }
 
-  .main__text-section_horizontal-section .main__text-subsection {
+  .main__text-section_even .main__text-subsection {
     grid-column: 1 / -1;
   }
 
-  .main__text-section_vertical-section {
+  .main__text-section_odd {
     grid-template-columns: 1fr 2fr;
   }
 
@@ -309,11 +296,11 @@
     margin-block-start: 58px;
   }
 
-  .main__text-section.main__text-section_vertical-section {
+  .main__text-section.main__text-section_odd {
     gap: 10px;
   }
 
-  .main__text-section_horizontal-section .main__text-subsection {
+  .main__text-section_even .main__text-subsection {
     grid-template-columns: repeat(3, 1fr);
   }
 }

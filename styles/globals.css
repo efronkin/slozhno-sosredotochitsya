@@ -12,7 +12,7 @@ body {
   background-color: var(--bg-color);
   color: var(--main-text-color);
   margin: 0 auto;
-  font-family: 'IBM Plex Mono', 'Arial', sans-serif;
+  font-family: 'IBM Plex Mono', monospace, 'Arial', sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 1.3;
