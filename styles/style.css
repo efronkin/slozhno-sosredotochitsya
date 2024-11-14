@@ -1,5 +1,319 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 .page {
+  background-image: var(--bg-iamge);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+}
+
+.header {
+  position: relative;
+}
+
+.header::after,
+.footer::after {
+  position: absolute;
+  top: var(--page-offset);
+  right: var(--page-offset);
+  content: "";
+  inline-size: 25px;
+  block-size: 25px;
+  border-top: 1px solid var(--accent-text-color);
+  border-right: 1px solid var(--accent-text-color);
+}
+
+.header::before,
+.footer::before {
+  position: absolute;
+  bottom: var(--page-offset);
+  left: var(--page-offset);
+  content: "";
+  inline-size: 25px;
+  block-size: 25px;
+  border-bottom: 1px solid var(--accent-text-color);
+  border-left: 1px solid var(--accent-text-color);
+}
+
+.decorated-zone {
+  margin: auto;
+  position: relative;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  block-size: 100vh;
+  align-items: center;
+  padding: var(--page-offset);
+}
+
+.header__rec {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  top: var(--page-offset);
+  right: 19px;
+  color: var(--accent-text-color);
+  text-transform: uppercase;
+}
+
+.header__rec::after {
+  content: "";
+  inline-size: 9px;
+  block-size: 9px;
+  border: 1px solid var(--accent-color);
+  border-radius: 50%;
+  background-color: var(--accent-color);
+  box-shadow: 0 0 4px 3px var(--accent-color);
+}
+
+.header__theme-menu {
+  justify-self: end;
+  align-self: end;
+  margin-block-end: 54px;
+}
+
+.header__theme-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.header__theme-menu-button {
+  background-color: transparent;
+  border: 1px solid transparent;
+  color: var(--accent-text-color);
+  padding: 3px 13px;
+  line-height: 1;
+  text-transform: lowercase;
+  text-align: center;
+}
+
+.header__theme-menu-button:hover {
+  border: 1px solid var(--accent-text-color);
+  cursor: pointer;
+}
+
+.header__theme-menu-button:focus-visible {
+  border-bottom: 1px solid var(--accent-text-color);
+  outline: none;
+}
+
+.header__theme-menu-button_active {
+  border: 1px solid var(--accent-text-color);
+  pointer-events: none;
+}
+
+.title {
+  font-size: clamp(7.25rem, 5.7694rem + 6.3174vw, 9.8125rem);
+  color: var(--title-text-color);
+  font-weight: var(--bold);
+  line-height: 0.825;
+  text-transform: lowercase;
+}
+
+.header__title {
+  text-shadow: 4px 4px 0 var(--accent-color);
+}
+
+.subtitle {
+  align-self: start;
+  margin-block-start: 43px;
+  color: var(--subtitle-text-color);
+  background-color: var(--subtitle-decor);
+  font-weight: var(--bold);
+}
+
+.main {
+  padding: 40px var(--page-offset);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 50px;
+}
+
+.main__text-section {
+  display: grid;
+  gap: 20px;
+}
+
+.main__text-subsection {
+  display: grid;
+  gap: 20px;
+}
+
+.main__section-title {
+  color: var(--accent-text-color);
+  font-size: 18px;
+  line-height: 1.3;
+}
+
+.main__subtitle {
+  background-color: var(--subtitle-decor);
+  color: var(--subtitle-text-color);
+  font-size: 18px;
+  line-height: 1.3;
+}
+
+.main__text-section .main__subtitle:not(:last-child) {
+  margin-block-end: 10px;
+}
+
+.link {
+  text-shadow: 2px 2px 0 var(--subtitle-decor);
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+
+.link:hover {
+  border-bottom: 1px solid var(--main-text-color);
+  outline: none;
+}
+
+.link:focus-visible {
+  border: 1px solid var(--main-text-color);
+  outline: none;
+}
+
+.font-weight_normal {
+  font-weight: 400;
+}
+
+.main__galery {
+  display: grid;
+  gap: 10px;
+}
+
+.main__card-block {
+  display: grid;
+  gap: 10px;
+}
+
+.galery-image {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
+.footer {
+  display: grid;
+  place-items: center;
+  position: relative;
+  block-size: 100vh;
+}
+
+.footer__title {
+  text-shadow: 2px 2px 0 var(--accent-color);
+}
+
+@media (prefers-color-scheme: light) {
+  .page.theme_auto {
+    --bg-color: #fff1f7;
+    --bg-iamge: url("../images/cover-image-light.png");
+    --accent-color: #ff0070;
+    --accent-text-color: #353430;
+    --title-text-color: #ffc2e6;
+    --subtitle-decor: #ff8dcb;
+    --subtitle-text-color: #353430;
+    --main-text-color: #353430;
+  }
+
+  .page.theme_auto .header__rec {
+    display: none;
+  }
+}
+
+@media (width >= 768px) {
+  :root {
+    --page-offset: 20px;
+  }
+
+  .decorated-zone {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .header__rec {
+    right: 29px;
+  }
+
+  .header__theme-menu {
+    grid-column: span 2;
+    margin-block-end: 59px;
+  }
+
+  .title {
+    grid-column: span 2;
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+
+  .header__title {
+    margin-inline-start: -20px;
+  }
+
+  .subtitle {
+    grid-column: 2;
+    margin-block-start: 48px;
+  }
+
+  .main {
+    padding: 60px 20px;
+    gap: 80px;
+  }
+
+  .main__text-section {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .main__text-section_horizontal-section .main__text-subsection {
+    grid-column: 1 / -1;
+  }
+
+  .main__text-section_vertical-section {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .main__galery {
+    gap: 20px;
+  }
+
+  .main__card-block {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .galery-image:nth-child(1) {
+    grid-column: span 2;
+  }
+
+  .galery-image:nth-child(2),
+  .galery-image:nth-child(3) {
+    grid-row: span 2;
+  }
+
+  .galery-image:nth-child(5) {
+    grid-column: span 2;
+  }
+}
+
+@media (width >= 1024px) {
+  .header__theme-menu {
+    justify-self: center;
+    align-self: start;
+  }
+
+  .header__theme-menu-list {
+    flex-direction: row;
+  }
+
+  .subtitle {
+    margin-block-start: 58px;
+  }
+
+  .main__text-section.main__text-section_vertical-section {
+    gap: 10px;
+  }
+
+  .main__text-section_horizontal-section .main__text-subsection {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }

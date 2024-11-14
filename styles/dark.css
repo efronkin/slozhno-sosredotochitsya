@@ -5,6 +5,14 @@
 */
 
 .page.theme_dark {
+  --bg-color: #000028;
+  --bg-iamge: url("../images/cover-image-dark.png");
+  --accent-color: #ff0070;
+  --accent-text-color: #FF0070;
+  --title-text-color: #DB00FF;
+  --subtitle-decor: #ff0070;
+  --subtitle-text-color: #000028;
+  --main-text-color: #F1B2CE;
   /* сохраните этот селектор в приведённом виде.
     Так стили написанные ниже будут иметь больший вес,
     чем стили в медиазапросе предпочтений пользователя
