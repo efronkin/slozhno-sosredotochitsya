@@ -9,6 +9,7 @@
   --bg-iamge: url("../images/cover-image-light.png");
   --accent-color: #ff0070;
   --accent-text-color: #353430;
+  --accent-border-color: rgb(53, 52, 48, 0.4);
   --title-text-color: #FFC2E6;
   --subtitle-decor: #FF8DCB;
   --subtitle-text-color: #353430;
@@ -29,6 +30,7 @@
     --bg-iamge: url("../images/cover-image-light.png");
     --accent-color: #ff0070;
     --accent-text-color: #353430;
+    --accent-border-color: rgb(53, 52, 48, 0.4);
     --title-text-color: #ffc2e6;
     --subtitle-decor: #ff8dcb;
     --subtitle-text-color: #353430;

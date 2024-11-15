@@ -1,7 +1,7 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 .page {
-  background-color: var(--bg-color); /*Цвет был задан в global, продублировал здесь*/
+  background-color: var(--bg-color);
   background-image: var(--bg-iamge);
   background-position: center;
   background-size: cover;
@@ -91,7 +91,7 @@
 }
 
 .header__theme-menu-button:hover {
-  border: 1px solid currentColor;
+  border: 1px solid var(--accent-border-color); /*Добавил переменную с прозрачностью*/
   cursor: pointer;
 }
 
@@ -251,11 +251,11 @@
     grid-template-columns: 1fr 2fr;
   }
 
-  .main__text-section_even .main__text-subsection {
+  .main__text-section:nth-child(even) .main__text-subsection {
     grid-column: 1 / -1;
   }
 
-  .main__text-section_odd {
+  .main__text-section:nth-child(odd) {
     grid-template-columns: 1fr 2fr;
   }
 
@@ -296,11 +296,11 @@
     margin-block-start: 58px;
   }
 
-  .main__text-section.main__text-section_odd {
+  .main__text-section.main__text-section:nth-child(odd) {
     gap: 10px;
   }
 
-  .main__text-section_even .main__text-subsection {
+  .main__text-section:nth-child(even) .main__text-subsection {
     grid-template-columns: repeat(3, 1fr);
   }
 }
