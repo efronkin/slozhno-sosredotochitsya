@@ -251,12 +251,8 @@
     grid-template-columns: 1fr 2fr;
   }
 
-  .main__text-section:nth-child(even) .main__text-subsection {
+  .main__text-section_different .main__text-subsection {
     grid-column: 1 / -1;
-  }
-
-  .main__text-section:nth-child(odd) {
-    grid-template-columns: 1fr 2fr;
   }
 
   .main__galery {
@@ -296,11 +292,15 @@
     margin-block-start: 58px;
   }
 
-  .main__text-section.main__text-section:nth-child(odd) {
+  .main__text-section {
     gap: 10px;
   }
 
-  .main__text-section:nth-child(even) .main__text-subsection {
+  .main__text-section_different {
+    gap: 20px;
+  }
+
+  .main__text-section_different .main__text-subsection {
     grid-template-columns: repeat(3, 1fr);
   }
 }
